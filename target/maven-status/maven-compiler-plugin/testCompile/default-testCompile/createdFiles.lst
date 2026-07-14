@@ -1,0 +1,6 @@
+com\gameapp\controller\AuthControllerTest.class
+com\gameapp\controller\DashboardControllerTest.class
+com\gameapp\GameAppApplicationTests.class
+com\gameapp\repository\UserRepositoryTest.class
+com\gameapp\integration\GameAppIntegrationTest.class
+com\gameapp\service\UserServiceTest.class

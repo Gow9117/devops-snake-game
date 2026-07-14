@@ -1,0 +1,110 @@
+﻿[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------------< com.gameapp:gameapp >-------------------------
+[INFO] Building Game Application 1.0.0
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.5.0:clean (default-clean) @ gameapp ---
+[INFO] Deleting C:\github\SnakeGame\target
+[INFO] 
+[INFO] --- jacoco:0.8.15:prepare-agent (default) @ gameapp ---
+[INFO] argLine set to -javaagent:C:\\Users\\Dell\\.m2\\repository\\org\\jacoco\\org.jacoco.agent\\0.8.15\\org.jacoco.agent-0.8.15-runtime.jar=destfile=C:\\github\\SnakeGame\\target\\jacoco.exec
+[INFO] 
+[INFO] --- resources:3.5.0:resources (default-resources) @ gameapp ---
+[INFO] Copying 3 resources from src\main\resources to target\classes
+[INFO] Copying 5 resources from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.15.0:compile (default-compile) @ gameapp ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 7 source files with javac [debug parameters release 25] to target\classes
+[INFO] 
+[INFO] --- resources:3.5.0:testResources (default-testResources) @ gameapp ---
+[INFO] Copying 2 resources from src\test\resources to target\test-classes
+[INFO] 
+[INFO] --- compiler:3.15.0:testCompile (default-testCompile) @ gameapp ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 6 source files with javac [debug parameters release 25] to target\test-classes
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /C:/github/SnakeGame/src/test/java/com/gameapp/controller/AuthControllerTest.java:[9,63] package org.springframework.boot.autoconfigure.security.servlet does not exist
+[ERROR] /C:/github/SnakeGame/src/test/java/com/gameapp/controller/AuthControllerTest.java:[10,63] package org.springframework.boot.test.autoconfigure.web.servlet does not exist
+[ERROR] /C:/github/SnakeGame/src/test/java/com/gameapp/controller/AuthControllerTest.java:[11,50] package org.springframework.boot.test.mock.mockito does not exist
+[ERROR] /C:/github/SnakeGame/src/test/java/com/gameapp/controller/AuthControllerTest.java:[27,2] cannot find symbol
+  symbol: class WebMvcTest
+[ERROR] /C:/github/SnakeGame/src/test/java/com/gameapp/controller/DashboardControllerTest.java:[9,63] package org.springframework.boot.autoconfigure.security.servlet does not exist
+[ERROR] /C:/github/SnakeGame/src/test/java/com/gameapp/controller/DashboardControllerTest.java:[10,63] package org.springframework.boot.test.autoconfigure.web.servlet does not exist
+[ERROR] /C:/github/SnakeGame/src/test/java/com/gameapp/controller/DashboardControllerTest.java:[11,50] package org.springframework.boot.test.mock.mockito does not exist
+[ERROR] /C:/github/SnakeGame/src/test/java/com/gameapp/controller/DashboardControllerTest.java:[28,2] cannot find symbol
+  symbol: class WebMvcTest
+[ERROR] /C:/github/SnakeGame/src/test/java/com/gameapp/integration/GameAppIntegrationTest.java:[10,63] package org.springframework.boot.test.autoconfigure.web.servlet does not exist
+[ERROR] /C:/github/SnakeGame/src/test/java/com/gameapp/integration/GameAppIntegrationTest.java:[27,2] cannot find symbol
+  symbol: class AutoConfigureMockMvc
+[ERROR] /C:/github/SnakeGame/src/test/java/com/gameapp/repository/UserRepositoryTest.java:[8,59] package org.springframework.boot.test.autoconfigure.orm.jpa does not exist
+[ERROR] /C:/github/SnakeGame/src/test/java/com/gameapp/repository/UserRepositoryTest.java:[19,2] cannot find symbol
+  symbol: class DataJpaTest
+[ERROR] /C:/github/SnakeGame/src/test/java/com/gameapp/controller/AuthControllerTest.java:[28,41] cannot find symbol
+  symbol: class UserDetailsServiceAutoConfiguration
+[ERROR] /C:/github/SnakeGame/src/test/java/com/gameapp/controller/AuthControllerTest.java:[36,6] cannot find symbol
+  symbol:   class MockBean
+  location: class com.gameapp.controller.AuthControllerTest
+[ERROR] /C:/github/SnakeGame/src/test/java/com/gameapp/controller/AuthControllerTest.java:[40,6] cannot find symbol
+  symbol:   class MockBean
+  location: class com.gameapp.controller.AuthControllerTest
+[ERROR] /C:/github/SnakeGame/src/test/java/com/gameapp/controller/DashboardControllerTest.java:[29,41] cannot find symbol
+  symbol: class UserDetailsServiceAutoConfiguration
+[ERROR] /C:/github/SnakeGame/src/test/java/com/gameapp/controller/DashboardControllerTest.java:[37,6] cannot find symbol
+  symbol:   class MockBean
+  location: class com.gameapp.controller.DashboardControllerTest
+[ERROR] /C:/github/SnakeGame/src/test/java/com/gameapp/controller/DashboardControllerTest.java:[41,6] cannot find symbol
+  symbol:   class MockBean
+  location: class com.gameapp.controller.DashboardControllerTest
+[INFO] 18 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  4.254 s
+[INFO] Finished at: 2026-07-13T19:23:18+05:30
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.15.0:testCompile (default-testCompile) on project gameapp: Compilation failure: Compilation failure: 
+[ERROR] /C:/github/SnakeGame/src/test/java/com/gameapp/controller/AuthControllerTest.java:[9,63] package org.springframework.boot.autoconfigure.security.servlet does not exist
+[ERROR] /C:/github/SnakeGame/src/test/java/com/gameapp/controller/AuthControllerTest.java:[10,63] package org.springframework.boot.test.autoconfigure.web.servlet does not exist
+[ERROR] /C:/github/SnakeGame/src/test/java/com/gameapp/controller/AuthControllerTest.java:[11,50] package org.springframework.boot.test.mock.mockito does not exist
+[ERROR] /C:/github/SnakeGame/src/test/java/com/gameapp/controller/AuthControllerTest.java:[27,2] cannot find symbol
+[ERROR]   symbol: class WebMvcTest
+[ERROR] /C:/github/SnakeGame/src/test/java/com/gameapp/controller/DashboardControllerTest.java:[9,63] package org.springframework.boot.autoconfigure.security.servlet does not exist
+[ERROR] /C:/github/SnakeGame/src/test/java/com/gameapp/controller/DashboardControllerTest.java:[10,63] package org.springframework.boot.test.autoconfigure.web.servlet does not exist
+[ERROR] /C:/github/SnakeGame/src/test/java/com/gameapp/controller/DashboardControllerTest.java:[11,50] package org.springframework.boot.test.mock.mockito does not exist
+[ERROR] /C:/github/SnakeGame/src/test/java/com/gameapp/controller/DashboardControllerTest.java:[28,2] cannot find symbol
+[ERROR]   symbol: class WebMvcTest
+[ERROR] /C:/github/SnakeGame/src/test/java/com/gameapp/integration/GameAppIntegrationTest.java:[10,63] package org.springframework.boot.test.autoconfigure.web.servlet does not exist
+[ERROR] /C:/github/SnakeGame/src/test/java/com/gameapp/integration/GameAppIntegrationTest.java:[27,2] cannot find symbol
+[ERROR]   symbol: class AutoConfigureMockMvc
+[ERROR] /C:/github/SnakeGame/src/test/java/com/gameapp/repository/UserRepositoryTest.java:[8,59] package org.springframework.boot.test.autoconfigure.orm.jpa does not exist
+[ERROR] /C:/github/SnakeGame/src/test/java/com/gameapp/repository/UserRepositoryTest.java:[19,2] cannot find symbol
+[ERROR]   symbol: class DataJpaTest
+[ERROR] /C:/github/SnakeGame/src/test/java/com/gameapp/controller/AuthControllerTest.java:[28,41] cannot find symbol
+[ERROR]   symbol: class UserDetailsServiceAutoConfiguration
+[ERROR] /C:/github/SnakeGame/src/test/java/com/gameapp/controller/AuthControllerTest.java:[36,6] cannot find symbol
+[ERROR]   symbol:   class MockBean
+[ERROR]   location: class com.gameapp.controller.AuthControllerTest
+[ERROR] /C:/github/SnakeGame/src/test/java/com/gameapp/controller/AuthControllerTest.java:[40,6] cannot find symbol
+[ERROR]   symbol:   class MockBean
+[ERROR]   location: class com.gameapp.controller.AuthControllerTest
+[ERROR] /C:/github/SnakeGame/src/test/java/com/gameapp/controller/DashboardControllerTest.java:[29,41] cannot find symbol
+[ERROR]   symbol: class UserDetailsServiceAutoConfiguration
+[ERROR] /C:/github/SnakeGame/src/test/java/com/gameapp/controller/DashboardControllerTest.java:[37,6] cannot find symbol
+[ERROR]   symbol:   class MockBean
+[ERROR]   location: class com.gameapp.controller.DashboardControllerTest
+[ERROR] /C:/github/SnakeGame/src/test/java/com/gameapp/controller/DashboardControllerTest.java:[41,6] cannot find symbol
+[ERROR]   symbol:   class MockBean
+[ERROR]   location: class com.gameapp.controller.DashboardControllerTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
