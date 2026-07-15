@@ -1,10 +1,9 @@
 pipeline{
     agent any
 
-    // tools {
-    //     // jdk 'java-21'
-    //     // maven 'maven'
-    // }
+    tools {
+        maven 'maven'
+    }
     stages{
        stage('Git Checkout') {
             steps {
@@ -19,59 +18,5 @@ pipeline{
                 '''
             }
         }
-
-        // stage('Test & coverage') {
-        //     steps {
-        //         sh '''
-        //             mvn clean test jacoco:report
-        //         '''
-        //     }
-
-        //     post {
-        //         always {
-        //             jacoco(
-        //                 execPattern: 'target/jacoco.exec',
-        //                 classPattern: 'target/classes',
-        //                 sourcePattern: 'src/main/java',
-        //                 exclusionPattern: ''
-        //             )
-        //         }
-        //     }
-        // }
-
-        // stage('SonarQube'){
-        //     steps{
-        //         sh '''
-        //             mvn sonar:sonar \
-        //             -Dsonar.projectKey=snake-game \
-        //             -Dsonar.host.url=http://18.237.61.251:9000 \
-        //             -Dsonar.login=925337beed5be219a08790270383b1becf1c2c37
-        //         '''
-        //     }
-        // }
-
-        // stage('Sonar-qube-auth'){
-        //     steps{
-        //         withSonarQubeEnv('SonarQube') {
-        //             sh '''
-        //                 mvn clean package org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
-        //             '''
-        //             }
-        //     }
-        // }
-
-        // stage('Quality Gate') {
-        //     steps {
-        //         timeout(time: 2, unit: 'MINUTES') {
-        //             waitForQualityGate abortPipeline: true
-        //         }
-        //     }
-        // }
-
-        // stage('dependency-check/vulnerability-scan'){
-        //     steps {
-        //         sh 'mvn org.owasp:dependency-check-maven:check -Dformat=ALL'
-        //      }
-        // }
     }
 }
