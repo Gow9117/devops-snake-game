@@ -6,6 +6,9 @@ pipeline {
         maven 'maven'
     }
 
+    environment {
+        IMAGE_NAME = 'gow9117/devops-pipeline:${GIT_COMMIT}'
+    }
     stages {
 
         stage('Git Checkout') {
@@ -35,7 +38,7 @@ pipeline {
                 sh '''
                     printenv
                     echo "Building Docker Image..."
-                    docker build -t devops:latest .
+                    docker build -t ${IMAGE_NAME} .
                 '''
             }
         }
@@ -54,6 +57,14 @@ pipeline {
                         echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
                     '''
                 }
+            }
+        }
+        stage('Docker Push') {
+            steps {
+                sh '''
+                    echo "Pushing Docker Image to Docker Hub..."
+                    docker push ${IMAGE_NAME}
+                '''
             }
         }
 
