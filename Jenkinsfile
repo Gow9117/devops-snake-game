@@ -19,5 +19,12 @@ pipeline{
                 '''
             }
         }
+        stage('Build') {
+            steps {
+                sh '''
+                    mvn package
+                '''
+            }
+        }
     }
 }
