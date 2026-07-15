@@ -1,10 +1,10 @@
 pipeline{
     agent any
 
-    tools {
-        // jdk 'java-21'
-        // maven 'maven'
-    }
+    // tools {
+    //     // jdk 'java-21'
+    //     // maven 'maven'
+    // }
     stages{
        stage('Git Checkout') {
             steps {
