@@ -68,10 +68,10 @@ pipeline{
         //     }
         // }
 
-//         stage('dependency-check/vulnerability-scan'){
-//             steps {
-//                 sh 'mvn org.owasp:dependency-check-maven:check -Dformat=ALL'
-//              }
-//         }
-//     }
-// }
+        // stage('dependency-check/vulnerability-scan'){
+        //     steps {
+        //         sh 'mvn org.owasp:dependency-check-maven:check -Dformat=ALL'
+        //      }
+        // }
+    }
+}
