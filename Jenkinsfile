@@ -2,13 +2,13 @@ pipeline{
     agent any
 
     tools {
-        jdk 'java-17'
+        jdk 'java-21'
         maven 'maven'
     }
     stages{
        stage('Git Checkout') {
             steps {
-                git url: 'https://github.com/ManojKRISHNAPPA/SnakeGame.git', branch: 'main'
+                git url: 'https://github.com/Gow9117/devops-snake-game.git', branch: 'main'
             }
         }
 
@@ -68,7 +68,7 @@ pipeline{
         //     }
         // }
 
-        stage('depedency-chck/vulnarablescan'){
+        stage('dependency-check/vulnerability-scan'){
             steps {
                 sh 'mvn org.owasp:dependency-check-maven:check -Dformat=ALL'
              }
