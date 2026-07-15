@@ -28,9 +28,9 @@ pipeline{
         }
         stage('Docker Build') {
             steps {
-                printenv
-                echo "Building Docker Image..."
                 sh '''
+                    printenv
+                    echo "Building Docker Image..."
                     docker build -t devops:latest .
                 '''
             }
