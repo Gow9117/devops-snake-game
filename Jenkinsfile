@@ -7,7 +7,7 @@ pipeline {
     }
 
     environment {
-        IMAGE_NAME = 'gow9117/devops-pipeline:${GIT_COMMIT}'
+        IMAGE_NAME = "gow9117/devops-pipeline:${GIT_COMMIT}"
     }
     stages {
 
