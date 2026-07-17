@@ -1,4 +1,4 @@
-# Quantamvector — AWS Infrastructure with Terraform & Jenkins
+# Gowtham — AWS Infrastructure with Terraform & Jenkins
 
 This repository provisions a production-ready AWS infrastructure using Terraform, organized into layered modules and automated through a Jenkins CI/CD pipeline.
 
@@ -40,9 +40,9 @@ This repository provisions a production-ready AWS infrastructure using Terraform
   │   └─────────────────────┘   └─────────────────────┘    │
   └─────────────────────────────────────────────────────────┘
 
-  S3 Bucket         → itkannadigaru-infra-statefile-backup
-  DynamoDB Table    → itkannadigaru-terraform-locks
-  EKS Cluster       → itkannadigaru
+  S3 Bucket         → gowtham-infra-statefile-backup
+  DynamoDB Table    → gowtham-terraform-locks
+  EKS Cluster       → gowtham
 ```
 
 ---
@@ -88,11 +88,11 @@ Creates the remote backend infrastructure that all other layers use to store the
 
 | Resource | Name | Purpose |
 |---|---|---|
-| `aws_s3_bucket` | `itkannadigaru-infra-statefile-backup` | Stores all `.tfstate` files remotely |
+| `aws_s3_bucket` | `gowtham-infra-statefile-backup` | Stores all `.tfstate` files remotely |
 | `aws_s3_bucket_versioning` | same bucket | Keeps history of state — allows rollback |
 | `aws_s3_bucket_server_side_encryption_configuration` | same bucket | Encrypts state files at rest (AES256) |
 | `aws_s3_bucket_public_access_block` | same bucket | Blocks all public access to state files |
-| `aws_dynamodb_table` | `itkannadigaru-terraform-locks` | Prevents concurrent terraform applies |
+| `aws_dynamodb_table` | `gowtham-terraform-locks` | Prevents concurrent terraform applies |
 
 ### Why This Runs First
 Layers 1 and 2 both declare an S3 backend. The bucket and DynamoDB table **must already exist** before `terraform init` can run on those layers. Bootstrap creates them.
@@ -143,18 +143,18 @@ Subnets are tagged so the AWS Load Balancer Controller can auto-discover them:
 ```hcl
 # Public subnets
 "kubernetes.io/role/elb"               = "1"
-"kubernetes.io/cluster/itkannadigaru"  = "shared"
+"kubernetes.io/cluster/gowtham"  = "shared"
 
 # Private subnets
 "kubernetes.io/role/internal-elb"      = "1"
-"kubernetes.io/cluster/itkannadigaru"  = "shared"
+"kubernetes.io/cluster/gowtham"  = "shared"
 ```
 
 ### Variables
 
 | Variable | Default | Description |
 |---|---|---|
-| `project` | `itkannadigaru` | Used in all resource names and tags |
+| `project` | `gowtham` | Used in all resource names and tags |
 | `vpc_cidr` | `10.0.0.0/16` | CIDR block for the VPC |
 | `azs` | `["us-west-2a", "us-west-2b"]` | Availability zones to deploy into |
 
@@ -179,8 +179,8 @@ Creates the Kubernetes cluster and managed worker node group inside the network 
 data "terraform_remote_state" "network" {
   backend = "s3"
   config = {
-    bucket = "itkannadigaru-infra-statefile-backup"
-    key    = "itkannadigaru/1-network/terraform.tfstate"
+    bucket = "gowtham-infra-statefile-backup"
+    key    = "gowtham/1-network/terraform.tfstate"
     region = "us-west-2"
   }
 }
@@ -192,7 +192,7 @@ This pulls `vpc_id`, `private_subnet_ids`, and `public_subnet_ids` directly from
 
 | Setting | Value | Notes |
 |---|---|---|
-| `cluster_name` | `itkannadigaru` | |
+| `cluster_name` | `gowtham` | |
 | `cluster_version` | `1.30` | Kubernetes version |
 | `enable_irsa` | `true` | IAM Roles for Service Accounts |
 | `cluster_endpoint_public_access` | `true` | `kubectl` works from your laptop |
@@ -242,8 +242,8 @@ Storing state in S3 solves all of this.
 
 | Layer | S3 Key |
 |---|---|
-| 1-network | `itkannadigaru/1-network/terraform.tfstate` |
-| 2-eks | `itkannadigaru/2-eks/terraform.tfstate` |
+| 1-network | `gowtham/1-network/terraform.tfstate` |
+| 2-eks | `gowtham/2-eks/terraform.tfstate` |
 
 ### Why DynamoDB Locking?
 
@@ -265,7 +265,7 @@ Pipeline Run #2 starts at the same time
 Run #1 finishes → lock released → Run #2 can proceed
 ```
 
-DynamoDB table used across all layers: `itkannadigaru-terraform-locks`
+DynamoDB table used across all layers: `gowtham-terraform-locks`
 
 ---
 
@@ -408,12 +408,12 @@ Destroy: 0-bootstrap  → removes S3 bucket and DynamoDB last
 | Item | Value |
 |---|---|
 | AWS Region | `us-west-2` |
-| Project Name | `itkannadigaru` |
-| EKS Cluster | `itkannadigaru` |
+| Project Name | `gowtham` |
+| EKS Cluster | `gowtham` |
 | Kubernetes Version | `1.30` |
 | VPC CIDR | `10.0.0.0/16` |
 | Availability Zones | `us-west-2a`, `us-west-2b` |
-| S3 State Bucket | `itkannadigaru-infra-statefile-backup` |
-| DynamoDB Lock Table | `itkannadigaru-terraform-locks` |
+| S3 State Bucket | `gowtham-infra-statefile-backup` |
+| DynamoDB Lock Table | `gowtham-terraform-locks` |
 | Node Instance Type | `c7i-flex.large` |
 | Node Count | min: 1, desired: 2, max: 3 |
