@@ -2,10 +2,10 @@ pipeline {
 
     agent any
 
-    // tools {
-    //     jdk 'java-21'
-    //     maven 'maven'
-    // }
+    tools {
+        jdk 'java-21'
+        maven 'maven'
+    }
 
     // environment {
     //     IMAGE_NAME = "gow9117/devops-pipeline:${GIT_COMMIT}"
