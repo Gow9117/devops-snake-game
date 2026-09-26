@@ -64,9 +64,9 @@ pipeline {
         //         sh '''
         //             echo "Pushing Docker Image to Docker Hub..."
         //             docker push ${IMAGE_NAME}
-        //         '''
-        //     }
-        }
+    //     //         '''
+    //     //     }
+    //     }
 
-    }
+    // }
 }
