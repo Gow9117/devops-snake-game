@@ -43,7 +43,7 @@ pipeline {
                 sh '''
                     printenv
                     echo "Building Docker Image..."
-                    docker build -t ${IMAGE_NAME} .
+                    docker build -t devops:latest .
                 '''
             }
         }
