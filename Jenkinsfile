@@ -38,15 +38,15 @@ pipeline {
             }
         }
 
-        // stage('Docker Build') {
-        //     steps {
-        //         sh '''
-        //             printenv
-        //             echo "Building Docker Image..."
-        //             docker build -t ${IMAGE_NAME} .
-        //         '''
-        //     }
-        // }
+        stage('Docker Build') {
+            steps {
+                sh '''
+                    printenv
+                    echo "Building Docker Image..."
+                    docker build -t ${IMAGE_NAME} .
+                '''
+            }
+        }
 
         // stage('Docker Login') {
         //     steps {
