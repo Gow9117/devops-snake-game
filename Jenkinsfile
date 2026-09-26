@@ -17,21 +17,21 @@ pipeline {
             }
         }
 
-        // stage('Compile') {
-        //     steps {
-        //         sh '''
-        //             mvn compile
-        //         '''
-        //     }
-        // }
+        stage('Compile') {
+            steps {
+                sh '''
+                    mvn compile
+                '''
+            }
+        }
 
-        // stage('Build') {
-        //     steps {
-        //         sh '''
-        //             mvn clean package
-        //         '''
-        //     }
-        // }
+        stage('Build') {
+            steps {
+                sh '''
+                    mvn clean package
+                '''
+            }
+        }
 
         // stage('Docker Build') {
         //     steps {
