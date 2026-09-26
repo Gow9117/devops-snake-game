@@ -1,4 +1,5 @@
 pipeline {
+
     agent any
 
     // tools {
@@ -9,11 +10,15 @@ pipeline {
     // environment {
     //     IMAGE_NAME = "gow9117/devops-pipeline:${GIT_COMMIT}"
     // }
+
     stages {
 
         stage('Git Checkout') {
             steps {
-                git url: 'https://github.com/Gow9117/devops-snake-game.git', branch: 'main'
+                git(
+                    url: 'https://github.com/Gow9117/devops-snake-game.git',
+                    branch: 'main'
+                )
             }
         }
 
@@ -54,19 +59,21 @@ pipeline {
         //         ]) {
         //             sh '''
         //                 echo "Logging into Docker Hub..."
-        //                 echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+        //                 echo "$DOCKER_PASSWORD" | docker login \
+        //                     -u "$DOCKER_USERNAME" \
+        //                     --password-stdin
         //             '''
         //         }
         //     }
         // }
+
         // stage('Docker Push') {
         //     steps {
         //         sh '''
         //             echo "Pushing Docker Image to Docker Hub..."
         //             docker push ${IMAGE_NAME}
-    //     //         '''
-    //     //     }
-    //     }
-
-    // }
+        //         '''
+        //     }
+        // }
+    }
 }
